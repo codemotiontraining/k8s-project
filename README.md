@@ -6,7 +6,7 @@ Build and deploy a webapp composed by 3 services using docker and docker compose
 - gui
 - db postgres
 
-## Usage
+## Usage
 
 ```bash
 $ docker-compose build api
