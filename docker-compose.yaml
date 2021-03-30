@@ -11,7 +11,7 @@ services:
     volumes:
       - ./db-data:/var/lib/postgresql/data
   api:
-    image: codemotion/docker-api
+    image: ludusrusso/codemotion-api
     build: ./server
     restart: always
     environment:
@@ -21,8 +21,10 @@ services:
     depends_on:
       - db
   gui:
-    image: codemotion/docker-gui
+    image: ludusrusso/codemotion-gui
     build: ./client
     restart: always
+    environment:
+      API_URL: 'http://localhost:8080'
     ports:
       - 8081:80

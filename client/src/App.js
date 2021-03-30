@@ -88,16 +88,18 @@ function Form({ addUser }) {
   );
 }
 
+const API_URL = window.env.API_URL;
+
 function App() {
   const [users, setUsers] = useState();
   const fetchUser = () => {
-    fetch('http://localhost:8080/users')
+    fetch(`${API_URL}/users`)
       .then((res) => res.json())
       .then(setUsers);
   };
   useEffect(fetchUser, []);
   const addUser = (user) =>
-    fetch('http://localhost:8080/users', {
+    fetch(`${API_URL}/users`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
