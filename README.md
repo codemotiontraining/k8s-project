@@ -1,6 +1,6 @@
-# App web docker example
+# Kubernetes example of a web application
 
-Build and deploy a webapp composed by 3 services using docker and docker compose.
+Example of a deploy a web application on kubernetes based on 3 services:
 
 - api
 - gui
@@ -9,7 +9,8 @@ Build and deploy a webapp composed by 3 services using docker and docker compose
 ## Usage
 
 ```bash
-$ docker-compose build api
-$ docker-compose build gui
-$ docker-compose up
+$ helm install db bitnami/postgresql -n codemotion
+$ kubectl apply -f k8s/client.yaml
+$ kubectl apply -f k8s/service.yaml
+$ kubectl apply -f k8s/ingress.yaml
 ```
